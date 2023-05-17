@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#303030"
+    app:layout_constraintCircleRadius="20dp"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/Titulo"
+        android:layout_width="280dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/baumans"
+        android:text="Coin Crypto"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="48sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/Subtitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:fontFamily="@font/aldrich"
+        android:text="Se mantenha sempre atualizado "
+        android:textColor="#9A3746"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/Titulo" />
+
+    <TextView
+        android:id="@+id/barradivisao"
+        android:layout_width="370dp"
+        android:layout_height="2dp"
+        android:layout_marginTop="35dp"
+        android:background="#9A3746"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/Subtitulo" />
+
+    <View
+        style="@style/Container"
+        android:id="@+id/container1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/barradivisao"
+        app:layout_constraintBottom_toBottomOf="@+id/texto2"/>
+
+    <TextView
+        android:id="@+id/texto1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:fontFamily="@font/aldrich"
+        android:text="SELECIONE A MOEDA PARA CONVERSÃO"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/Subtitulo" />
+
+    <RadioGroup
+        android:id="@+id/radiogroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="110dp"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/texto1">
+
+        <RadioButton
+            android:id="@+id/rbReal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="50dp"
+            android:text="REAL"
+            android:textColor="#FFFFFF" />
+
+        <RadioButton
+            android:id="@+id/rbDolar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="DOLAR"
+            android:textColor="#FFFFFF"
+            android:textColorHighlight="#9A3746"
+            android:textColorLink="#9A3746"
+            app:useMaterialThemeColors="false" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/VerificaCotacao"
+        android:layout_width="200dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="60dp"
+        android:backgroundTint="#9A3746"
+        android:onClick="verCotacao"
+        android:text="VERIFICAR COTAÇÃO ATUAL DO DOLAR"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/radiogroup" />
+
+    <View
+        style="@style/Container"
+        android:id="@+id/container2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/texto2"
+        app:layout_constraintBottom_toBottomOf="@+id/Converter"/>
+
+    <TextView
+        android:id="@+id/texto2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="130dp"
+        android:fontFamily="@font/aldrich"
+        android:text="DIGITE OS VALORES PARA CONVERTER"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/VerificaCotacao" />
+
+    <EditText
+        android:id="@+id/CotacBitcoin"
+        android:layout_width="220dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="30dp"
+        android:ems="8"
+        android:fontFamily="@font/aldrich"
+        android:hint="Cotação do Bitcoin"
+        android:imeOptions="actionGo"
+        android:inputType="number|numberDecimal"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        android:textSize="15sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/texto2" />
+
+    <EditText
+        android:id="@+id/QuantBitcoin"
+        android:layout_width="220dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="50dp"
+        android:ems="8"
+        android:fontFamily="@font/aldrich"
+        android:hint="Quantidade de Bitcoin"
+        android:imeOptions="actionGo"
+        android:inputType="number|numberDecimal"
+        android:singleLine="false"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        android:textSize="15sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/CotacBitcoin" />
+
+    <Button
+        android:id="@+id/Converter"
+        android:layout_width="130dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="50dp"
+        android:backgroundTint="#9A3746"
+        android:onClick="calcular"
+        android:text="CONVERTER"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/QuantBitcoin" />
+
+    <TextView
+        android:id="@+id/TituloConversao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="90dp"
+        android:fontFamily="@font/aldrich"
+        android:textColor="#9A3746"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/Converter" />
+
+    <TextView
+        android:id="@+id/ResultConversao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/aldrich"
+        android:textColor="#9A3746"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/TituloConversao" />
+
+    <Button
+        android:id="@+id/Limpar"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="50dp"
+        android:backgroundTint="#9A3746"
+        android:onClick="limparCampos"
+        android:text="LIMPAR"
+        android:visibility="invisible"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ResultConversao" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
